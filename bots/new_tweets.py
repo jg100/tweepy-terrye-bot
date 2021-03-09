@@ -48,6 +48,7 @@ def main():
             try:
                 api.update_status(status=tweet)
                 logger.info(f"\'" + tweet + '\'' + " has been posted")
+                time.sleep(21600)  # Sleep for 6 hours
                 continue
             except tweepy.TweepError as error:
                 logger.error(f"Error has ocured in posting: " + str(ValueError))
