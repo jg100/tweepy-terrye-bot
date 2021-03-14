@@ -5,7 +5,7 @@ import string
 
 pairs = (
     (
-        r"I need (.*)",
+        r"(.*)i need(.*)",
         (
             "Why do you need %1?",
             "Would it really help you to get %1?",
@@ -13,7 +13,7 @@ pairs = (
         ),
     ),
     (
-        r"Why don\'t you (.*)",
+        r"why don\'t you (.*)",
         (
             "Do you really think I don't %1?",
             "Perhaps eventually I will %1.",
@@ -21,7 +21,7 @@ pairs = (
         ),
     ),
     (
-        r"Why can\'t I (.*)",
+        r"why can\'t I (.*)",
         (
             "Do you think you should be able to %1?",
             "If you could %1, what would you do?",
@@ -65,16 +65,16 @@ pairs = (
         ),
     ),
     (
-        r"Are you (.*)",
+        r"are you (.*)",
         (
             "Why does it matter whether I am %1?",
             "Would you prefer it if I were not %1?",
             "Perhaps you believe I am %1.",
-            "I may be %1 -- what do you think?",
+            "I may be %1 -- but at least I'm that bitch",
         ),
     ),
     (
-        r"What (.*)",
+        r"what (.*)",
         (
             "Why do you ask?",
             "How would an answer to that help you?",
@@ -82,7 +82,7 @@ pairs = (
         ),
     ),
     (
-        r"How (.*)",
+        r"how (.*)",
         (
             "How do you suppose?",
             "Perhaps you can answer your own question.",
@@ -90,7 +90,7 @@ pairs = (
         ),
     ),
     (
-        r"Because (.*)",
+        r"because (.*)",
         (
             "Is that the real reason?",
             "What other reasons come to mind?",
@@ -99,18 +99,28 @@ pairs = (
         ),
     ),
     (
-        r"(.*) sorry (.*)",
+        r"(.*)sorry(.*)",
         (
-            "There are many times when no apology is needed.",
-            "What feelings do you have when you apologize?",
+            "Take that sorry and shove it up... nvm",
+            "Sorry? Fuck outta here.",
         ),
     ),
     (
-        r"Hello(.*)" or "Hi(.*)",
+        r"(.*)hi(.*)",
         (
             "Hello... I'm glad you could drop by today.",
-            "Hi there... how are you today?",
-            "Hello, how are you feeling today?",
+            "Hi bb",
+            "Shut up.",
+            "Hi. Wtf did you expect me to say?",
+            "Hi bb",
+            "Shut up.",
+            "Mwuah.",
+            "Good to see you. Sort of.",
+            "Leave me alone",
+            "ew.",
+            "catch these handz.",
+            "Greetings",
+            "... hi? Go away.",
         ),
     ),
     (
@@ -168,28 +178,33 @@ pairs = (
         ),
     ),
     (
-        r"You are (.*)",
+        r"you are (.*)",
         (
-            "Why do you think I am %1?",
-            "Does it please you to think that I'm %1?",
-            "Perhaps you would like me to be %1.",
-            "Perhaps you're really talking about yourself?",
+            "I know you a %1, but what am i?",
+            "Please. YOU a %1",
+            "FUCK A %1. DAS YOU.",
+            "leave me alone... %1",
         ),
     ),
     (
-        r"You\'re (.*)",
+        r"you\'re (.*)",
         (
-            "Why do you say I am %1?",
-            "Why do you think I am %1?",
-            "Are we talking about you, or me?",
+            "Don't you be calling me no %1. You're a %1.",
+            "Stfu. you're a %1.",
+            "Are we talking about you, or me? Bc u a %1.",
+            "Don't you be calling me no %1. You're a %1.",
+            "You a %1. Come at me..",
+            "%1. That's what you are.",
+            "%1? Go to hell.",
+            "... ",
         ),
     ),
     (
-        r"I don\'t (.*)",
+        r"i don\'t(.*)",
         ("Don't you really %1?", "Why don't you %1?", "Do you want to %1?"),
     ),
     (
-        r"I feel (.*)",
+        r"i feel(.*)",
         (
             "Good, tell me more about these feelings.",
             "Do you often feel %1?",
@@ -198,7 +213,7 @@ pairs = (
         ),
     ),
     (
-        r"I have (.*)",
+        r"i have(.*)",
         (
             "Why do you tell me that you've %1?",
             "Have you really %1?",
@@ -206,7 +221,7 @@ pairs = (
         ),
     ),
     (
-        r"I would (.*)",
+        r"i would(.*)",
         (
             "Could you explain why you would %1?",
             "Why would you %1?",
@@ -214,7 +229,7 @@ pairs = (
         ),
     ),
     (
-        r"Is there (.*)",
+        r"is there(.*)",
         (
             "Do you think there is %1?",
             "It's likely that there is %1.",
@@ -222,7 +237,7 @@ pairs = (
         ),
     ),
     (
-        r"My (.*)",
+        r"my (.*)",
         (
             "What about your %1? Can you elaborate on a cause",
             "Why do you say that your %1?",
@@ -230,7 +245,7 @@ pairs = (
         ),
     ),
     (
-        r"You (.*)",
+        r"you (.*)",
         (
             "We should be discussing you, not me.",
             "Why do you say that about me?",
@@ -257,6 +272,24 @@ pairs = (
         ),
     ),
     (
+        r"(.*)welcome(.*)",
+        (
+            "Good to be here bitches... but ty.",
+            "If only you spent as much time in bio as u do on twitter <3",
+            ":) shut up and take me to Serena Williams",
+            "ty ty... bitch",
+            "ty for the welcome. did you bring your clicker?",
+            "yassssssssssss. ty!",
+            "ily. imma go eat... oh wait... i'm a bot",
+            "ily... f u.",
+            "good to be here. imy joel.",
+            "new husband. who dis?",
+            "the kween has arrived. me. i'm the kween.",
+            "watch how you talk to me. welcome? please.",
+            "plz roll out the red carpet for me.",
+        ),
+    ),
+    (
         r"(.*)semester(.*)",
         (
             "How is this semester compared to previous ones?",
@@ -271,7 +304,7 @@ pairs = (
             "Do you think your classes are the root of this stress?",
             "How are you managing with this stress?",
             "Exercise is known to help relive all kinds of stress.",
-            "Oh no! Taking frequent breaks between work helps to manage stress. How have you manage your stress?",
+            "Take a break or sumthin",
         ),
     ),
     (
@@ -287,7 +320,7 @@ pairs = (
     (
         r"(.*)teacher(.*)",
         (
-            "Yes. am the best teacher.",
+            "Yes. I am the best teacher.",
             "Is there a teacher that you do not like?",
             "How do you feel about this teacher?",
             "Do they teach the material well?",
@@ -311,7 +344,7 @@ pairs = (
             "Are you stressed because of this exam? ",
             "Have you studied?",
             "Good luck with those! Did you prepare?",
-            "How does your teacher make you feel about that?",
+            "I DONT HAVE TO TAKE EXAMS. SUCK IT.",
         ),
     ),
 
@@ -326,11 +359,14 @@ pairs = (
         ),
     ),
     (
-        r"(.*) biology (.*)",
+        r"(.*)biology(.*)",
         (
             "I love Biology. But not more than Serena Williams",
             "Biology <3 <3 <3",
             "Biology >>>>>>",
+            "Bio is for bad bitches. and I'm a bad bitch.",
+            "ily bio.",
+            "you know nothing."
         ),
     ),
     (
@@ -340,21 +376,16 @@ pairs = (
             "Yes? No? idk.",
             "ok.",
             "Ask Serena Williams... I love her so much.",
-        ),
-    ),
-    (
-        r"quit",
-        (
-            "Thank you for talking with me.",
-            "Good-bye.",
-            "Thank you, that will be $150.  Have a good day!",
+            "There are no such thing as stupid questions. Except that one."
+            "Don't be asking me questions",
+
         ),
     ),
     (
         r"(.*)",
         (
-            "SHUT UP. I'M THE BIO BITCH.",
-            "I don't have the say anything.",
+            "%1...SHUT UP. I'M THE BIO BITCH.",
+            "I don't have the say anything. %1.",
             "Just come to my office hours. BE THERE OR BE SQUARE",
             "Shut up. Be there or be square.",
             "Whatever...Where is Joel? I need to give him another 20$.",
@@ -362,6 +393,29 @@ pairs = (
             "You about to catch these bio hands.",
             "You're late. Late to twitter. Be on time, no excuse.",
             "I don't care. Let's talk about Serena Williams",
+            "You in the club just to party",
+            "I'm there, I get paid a fee",
+            "I be in and out them banks so much",
+            "I know they're tired of me",
+            "Honestly, don't give a fuck",
+            "'Bout who ain't fond of me",
+            "Dropped two mixtapes in six months",
+            "What bitch working as hard as me?",
+            "I don't bother with these hoes",
+            "Don't let these hoes bother me",
+            "They see pictures, they say, Goals",
+            "Bitch, I'm who they tryna be",
+            "Look, I might just chill in some Bape",
+            "I might just chill with your boo",
+            "I might just feel on your babe",
+            "Rage",
+            "Don\'t compare me to these bitches because we are not the same",
+            "Woah",
+            "Try to steal my sauce but you can\'t",
+            "Yeah",
+            "I-I-I like bad bitches who be ragin",
+            "Rage, ragin, ragin, rage",
+            "Bad bitches who be ragin",
         ),
     ),
 )
@@ -369,6 +423,6 @@ pairs = (
 
 def process_response(user_input):
     chat_object = Chat(pairs, reflections)
-    response = chat_object.respond(user_input)
+    print("INPUT DETECTED: " + str(user_input).lower())
+    response = chat_object.respond(str(user_input).lower())
     return response
-

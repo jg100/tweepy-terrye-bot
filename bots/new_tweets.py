@@ -13,55 +13,48 @@ logger = logging.getLogger()
 
 def main():
     api = create_api()
+
+    logger.info(f"Opening txt file")
+    time.sleep(1)
+    tweet_file = open("tweets_database.txt", "r")
+    time.sleep(1)
+    logger.info(f"Data file has been opened...")
+    tweets_list = list()
+
+    for x in tweet_file:
+        ascii_sum = 0
+        for c in x:
+            ascii_sum += ord(c)
+
+        if ascii_sum > 41:
+            tweets_list.append(x)
+            print(x + " ^^^ has been loaded into data set")
+
+    tweet_file.close()
     while True:
 
-        now = datetime.now()
-        current_time = now.strftime("%H:%M")
-
-        rand_hour = random.randint(1, 22)
-        rand_min = random.randint(1, 59)
-
-        str_rand_hour = "0" + str(rand_hour) if rand_hour < 12 else str(rand_hour)
-        str_rand_minute = "0" + str(rand_min) if rand_min < 12 else str(rand_min)
-
-        time.sleep(10)
-        print("Random time has been generated. 10 Second Cool Down has begun...")
-
-        rand_time = str_rand_hour + ":" + str_rand_minute
-
-        logger.info("Current Time =" + current_time)
-        logger.info("Random Hour Generated: " + rand_time)
-
-        if str(current_time) == rand_time:
-            logger.info(f"Current time matches random hour")
-            time.sleep(3)
-            tweet_file = open("tweets_database.txt", "r")
-            time.sleep(2)
-            logger.info(f"Data file has been opened...")
-            time.sleep(2)
-            tweets_list = list()
-
-            for x in tweet_file:
-                tweets_list.append(x)
-
-            tweet_file.close()
-
-            tweet = tweets_list[random.randint(0, len(tweets_list) - 1)]
-            print(tweet)
-            time.sleep(2)
-            # Update status
-            try:
-                api.update_status(status=tweet)
-                logger.info(f"\'" + tweet + '\'' + " has been posted")
-                time.sleep(random.randint(10000, 21600))  # Sleep for 4-5hrs hours
+        tweet = tweets_list[random.randint(0, len(tweets_list) - 1)]
+        print("Selected tweet: " + tweet)
+        time.sleep(2)
+        # Update status
+        try:
+            api.update_status(status=tweet)
+            logger.info(f"TWEET: " + tweet + "^ has been posted")
+            sleep_time = random.randint(1000, 21600)
+            logger.info(f"Sleep for: " + str(sleep_time) + " seconds")
+            time.sleep(sleep_time) # max sleep time 6hrs
+            continue
+        except tweepy.TweepError as error:
+            logger.error(f"Error has ocured in posting: " + str(ValueError))
+            if error.api_code == 187:
+                print('Duplicate message')
+                time.sleep(1)
                 continue
-            except tweepy.TweepError as error:
-                logger.error(f"Error has ocured in posting: " + str(ValueError))
-                if error.api_code == 187:
-                    print('Duplicate message')
-                    time.sleep(3)
-                    continue
-            # print(tweet)
+            if error.api_code == 107:
+                print("Message too long")
+                time.sleep(1)
+                continue
+        # print(tweet)
 
 
 if __name__ == "__main__":
