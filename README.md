@@ -1,5 +1,7 @@
 # tweepy-terrye-bot
 
+Small pet project to hopefully break into deep learning and nueral nets.
+
 Simple twitter bot that pulls from collection of random sentences/tweets
 to post.
 
